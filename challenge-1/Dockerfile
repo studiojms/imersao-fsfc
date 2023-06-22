@@ -1,6 +1,13 @@
-FROM golang:alpine
+FROM golang:alpine as builder
 
-ADD ./*.go /go
-WORKDIR /go
+WORKDIR /src/app
 
-CMD ["go", "run", "main.go"]
+COPY . .
+
+RUN CGO_ENABLE=0 go build -o /app main.go
+
+FROM scratch
+
+COPY --from=builder /app /app
+
+CMD ["/app"]
