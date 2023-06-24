@@ -23,6 +23,22 @@ Uma order tem os seguintes dados:
 
 O ORM a ser usado é o Prisma ORM e o banco de dados precisa ser o Mongo, image: bitnami/mongodb:5.0.17
 
+**Obs:** Neste caso, em vez de usar a imagem solicitada, por problemas de compatibilidade com o SO, foi usada outra solução compatível.
+
+### Executando o projeto
+
+Para executar o projeto, execute:
+
+- `docker compose up`
+
+Em outro terminal
+
+- `nvm use`
+- `npm install`
+- `npm run start:dev`
+
+# General Guidelines
+
 ## Installation
 
 ```bash
