@@ -4,7 +4,7 @@ services:
   app:
     build: .
     ports:
-      - '4000:3000'
+      - '3000:3000'
       - '5555:5555'
     volumes:
       - .:/home/node/app
@@ -16,16 +16,6 @@ services:
     build: ./mongo_rs
     restart: always
     environment:
-      MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: root
-      MONGO_INITDB_DATABASE: nest
-      MONGO_REPLICA_HOST: localhost
-      MONGO_REPLICA_PORT: 27017
-    ports:
-      - '27017:27017'
-    volumes:
-      - mongodb_data:/data/db
-
-volumes:
-  mongodb_data:
-    driver: local
+      MONGO_REPLICA_HOST: db
+      MONGODB_DATABASE: nest
